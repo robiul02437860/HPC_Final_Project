@@ -17,23 +17,54 @@ split-merge-segmentation/
 └── Makefile                # Unified build system (Make/CMake)
 ```
 
-# MPI + CUDA
-To run the distributed memory gpu first load the modules:
+# Cleaning the Environment
+
 ```bash
   module purge
   module load gcc openmpi cuda
+  make clean
 ```
 
-Make the distributed gpu code:
+# Serial
+```bash
+  make serial
+  ./serial_splitmerge data/input.pgm results/output_serial.pgm
+```
+
+# Shared Memory CPU
+```bash
+  make shared_mem_cpu
+  ./omp_split_merge data/input.pgm results/output_shared_mem_cpu.pgm
+```
+
+# MPI
+```bash
+  make dist_mem_cpu
+  ./mpi_split_merge data/input.pgm results/output_mpi_split_merge.pgm
+```
+
+# CUDA
+```bash
+  make cuda_gpu
+  ./cuda_split_merge data/input.pgm results/output_cuda.pgm
+```
+
+# MPI + CUDA
+Make the distributed gpu binaries:
 
 ```bash
-  make clean
   make dist_mem_gpu
 ```
 
 To run the distributed memory code on 2 nodes (on lonepeak):
 ```bash 
   sbatch run_2nodes.sh
+```
+
+To run it on 3 or 4 nodes run (on lonepeak):
+```bash
+  sbatch run_3nodes.sh
+  sbatch run_4nodes.sh
 ```
 
 The outputs will be on ```sout/```.
