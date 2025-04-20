@@ -53,4 +53,9 @@ def visualize(original_path, segmented_path=None):
 
 # Example usage
 if __name__ == "__main__":
-    visualize("../results/input.pgm", "../results/output.pgm")
+    # visualize("data/input.pgm", "results/output.pgm")
+    visualize("data/input.pgm", "results/output_serial.pgm")
+    visualize("data/input.pgm", "results/output_shared_mem_cpu.pgm")
+    visualize("data/input.pgm", "results/output_cuda.pgm")
+    visualize("data/input.pgm", "results/output_dist_mem_cpu.pgm")
+    # visualize("data/input.pgm", "results/output_dist_mem_gpu.pgm")

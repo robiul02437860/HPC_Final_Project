@@ -5,7 +5,6 @@
 
 #include "../common/image_io.h"
 
-#define VAR_THRESHOLD 500
 #define DIFF_THRESHOLD 10
 
 #define BLOCK_SIZE 16  // CUDA block size
