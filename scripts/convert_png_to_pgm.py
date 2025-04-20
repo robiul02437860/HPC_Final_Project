@@ -21,4 +21,4 @@ def convert_color_to_pgm(input_path, output_path, resize_width, resize_height):
 
 # Example usage
 if __name__ == "__main__":
-    convert_color_to_pgm("data/original/input.jpg", "data/input.pgm", 256, 256)
+    convert_color_to_pgm("data/original/input.jpg", "data/input.pgm", 1024, 1024)

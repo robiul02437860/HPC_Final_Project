@@ -5,7 +5,7 @@
 #include <omp.h>
 #include "../common/image_io.h"
 
-#define DIFF_THRESHOLD 10
+#define DIFF_THRESHOLD 4
 
 void init_labels(uint8_t *img, int *labels, int width, int height) {
     #pragma omp parallel for collapse(2)
@@ -63,7 +63,7 @@ int main(int argc, char *argv[]) {
 
     #pragma omp parallel for
     for (int i = 0; i < img_size; i++)
-        img->data[i] = labels[i] % 256;
+        img->data[i] = labels[i] % 1024;
 
     write_pgm(argv[2], img);
     free_image(img);

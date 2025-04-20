@@ -5,7 +5,7 @@
 
 #include "../common/image_io.h"
 
-#define DIFF_THRESHOLD 10
+#define DIFF_THRESHOLD 4
 
 #define BLOCK_SIZE 16  // CUDA block size
 
@@ -94,7 +94,7 @@ int main(int argc, char *argv[]) {
     cudaMemcpy(labels, d_labels, size * sizeof(int), cudaMemcpyDeviceToHost);
 
     for (int i = 0; i < size; i++) {
-        img->data[i] = labels[i] % 256;
+        img->data[i] = labels[i] % 1024;
     }
 
     write_pgm(argv[2], img);
