@@ -53,4 +53,4 @@ def visualize(original_path, segmented_path=None):
 
 # Example usage
 if __name__ == "__main__":
-    visualize("data/input.pgm", "results/output.pgm")
+    visualize("../results/input.pgm", "../results/output.pgm")
